@@ -6,11 +6,11 @@ var ObjectReader = function (readerList) {
 
   this.init = function (parentContext) {
     if (readerList.length > 0) {
-      index = 0;
-      context = new Context(parentContext);
       readerList[0].reader.init(context);
-      obj = {};
     }
+    index = 0;
+    context = new Context(parentContext);
+    obj = {};
   };
 
   this.feed = function(str) {

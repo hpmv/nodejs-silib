@@ -2,23 +2,20 @@ var parse = require('./parse.js');
 var ObjectReader = require('./ObjectReader.js');
 var Context = require('./Context.js');
 
-var input = function(format, callback) {
-  var debugon = false;
+var input = function(format, callback, handle, debug) {
+  var debugon = !!debug;
   var helpers = {
     print: function(data) {
       process.stdout.write(''+data);
     },
     debug: function(data) {
       if (debugon)
-        process.stderr.write(''+data);
-    },
-    debugon: function() {
-      debugon = true;
-    },
-    debugoff: function() {
-      debugon = false;
+        process.stderr.write(''+data+'\n');
     }
   };
+  if (handle!=null) {
+    for (var k in helpers) handle[k] = helpers[k];
+  }
   var readerList = parse(format);
   var reader = new ObjectReader(readerList);
   var docallback = function(result) {
