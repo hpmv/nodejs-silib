@@ -1,0 +1,20 @@
+nodejs-silib = Structured Input Library for NodeJS
+
+Used for CodeJam or other similar-style contests, silib simplifies input format into a single string.
+
+Simple example: the A+B program. Read N, the number of cases. For each case, read A and B, output A+B.
+
+codejam('a,b', function(a,b) { this.print(a+b); });
+
+More complicated example (input string only): Read T, the number of cases. For each case, read N, then read N lines of
+two integers each.
+
+codejam('N,data[2][N]', ...);
+
+You can also assign names for each of the two integers - they might represent coordinates for example:
+
+codejam('N,data:{x,y}[N]', ...);
+
+Each line will then be read as a JavaScript object. For example, {x: 2, y: 3}.
+
+This library was initially coded in one night, so it can very possibly have bugs, despite some testing being done.

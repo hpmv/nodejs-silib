@@ -1,0 +1,11 @@
+4
+0
+1
+1 2 3 a b c
+2
+1 2 2 Hello World!
+2 1 4 3 abc def ghi
+3
+8 2 0
+9 2 3 How are you
+8 1 2 .. ..
