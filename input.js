@@ -3,9 +3,20 @@ var ObjectReader = require('./ObjectReader.js');
 var Context = require('./Context.js');
 
 var input = function(format, callback) {
+  var debugon = false;
   var helpers = {
     print: function(data) {
       process.stdout.write(''+data);
+    },
+    debug: function(data) {
+      if (debugon)
+        process.stderr.write(''+data);
+    },
+    debugon: function() {
+      debugon = true;
+    },
+    debugoff: function() {
+      debugon = false;
     }
   };
   var readerList = parse(format);
