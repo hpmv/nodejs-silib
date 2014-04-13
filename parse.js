@@ -46,10 +46,12 @@ var parse = function(input) {
 
   function read_id() {
     var buffer = "";
+    var first = true;
     while(!eof()){
       var x = read();
-      if(x>='A' && x<='Z' || x>='a' && x<='z' || x=='_') {
+      if(x>='A' && x<='Z' || x>='a' && x<='z' || x=='_' || !first && x>='0' && x<='9') {
         buffer+=x;
+        first = false;
       } else {
         putback();
         return buffer;
